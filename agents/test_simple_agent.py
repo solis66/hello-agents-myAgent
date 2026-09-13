@@ -4,6 +4,7 @@ from hello_agents import HelloAgentsLLM, ToolRegistry
 from hello_agents.tools import CalculatorTool
 from my_simple_agent import MySimpleAgent
 from pathlib import Path
+import os
 
 # 因为Windows 终端默认使用 GBK 编码，无法输出父类 think() 中的表情符号
 # 强制使用 UTF-8
@@ -17,7 +18,12 @@ env_path = Path(__file__).resolve().parent / ".env"
 load_dotenv(env_path, override=True)
 
 # 创建LLM实例
-llm = HelloAgentsLLM()
+llm = HelloAgentsLLM(
+    provider="deepseek",
+    model=os.getenv("LLM_MODEL_ID"),
+    api_key=os.getenv("LLM_API_KEY"),
+    base_url=os.getenv("LLM_BASE_URL"),
+)
 
 # 测试1:基础对话Agent（无工具）
 print("=== 测试1:基础对话 ===")

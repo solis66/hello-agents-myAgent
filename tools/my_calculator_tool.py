@@ -1,0 +1,9 @@
+# my_calculator_tool.py
+import ast
+import operator
+import math
+from hello_agents import ToolRegistry
+
+def my_calculate(expression: str) -> str:
+    """简单的数学计算函数"""
+    
