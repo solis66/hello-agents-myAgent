@@ -1,0 +1,7 @@
+.venv/
+.env
+knowledge_base/
+memory_data/
+__pycache__/
+*.pyc
+learning_report_*.json
